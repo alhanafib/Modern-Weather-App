@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast - Modern Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛅</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <div class="background-animation">
+            <div class="sun"></div>
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+        </div>
+        
+        <header class="app-header">
+            <h1><i class="fas fa-cloud-sun"></i> SkyCast</h1>
+            <p class="tagline">Real-time weather insights</p>
+        </header>
+        
+        <main class="main-content">
+            <div class="weather-card">
+                <div class="card-header">
+                    <div class="search-container">
+                        <div class="search-box">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                            <button id="search-btn" class="search-btn" aria-label="Search">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="location-btns">
+                            <button id="current-location-btn" class="location-btn">
+                                <i class="fas fa-location-arrow"></i> My Location
+                            </button>
+                            <button id="favorite-btn" class="favorite-btn" aria-label="Add to favorites">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-content">
+                    <div class="weather-main">
+                        <div class="weather-icon-container">
+                            <div class="weather-icon-animation">
+                                <img id="weather-icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather icon" class="weather-icon">
+                            </div>
+                            <div class="weather-status" id="weather-status">Clear Sky</div>
+                        </div>
+                        
+                        <div class="temperature-info">
+                            <div class="current-temp">
+                                <span id="temperature" class="temperature">24</span>
+                                <span class="temp-unit">°C</span>
+                            </div>
+                            <div class="feels-like">Feels like <span id="feels-like">25</span>°C</div>
+                            <div class="city-name" id="city-name">New York, US</div>
+                            <div class="date-time" id="date-time">Monday, 15 May 2023 • 14:30</div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <div class="detail-icon humidity">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="detail-info">
+                                <div class="detail-value" id="humidity">65%</div>
+                                <div class="detail-label">Humidity</div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-icon wind">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="detail-info">
+                                <div class="detail-value" id="wind-speed">12 km/h</div>
+                                <div class="detail-label">Wind Speed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-icon pressure">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="detail-info">
+                                <div class="detail-value" id="pressure">1013 hPa</div>
+                                <div class="detail-label">Pressure</div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-icon visibility">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="detail-info">
+                                <div class="detail-value" id="visibility">10 km</div>
+                                <div class="detail-label">Visibility</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forecast-section">
+                        <h3><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
+                        <div class="forecast-cards" id="forecast-container">
+                            <!-- Forecast cards will be dynamically added here -->
+                            <div class="forecast-card">
+                                <div class="forecast-day">Mon</div>
+                                <div class="forecast-icon"><i class="fas fa-sun"></i></div>
+                                <div class="forecast-temp">24°C</div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-day">Tue</div>
+                                <div class="forecast-icon"><i class="fas fa-cloud-sun"></i></div>
+                                <div class="forecast-temp">22°C</div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-day">Wed</div>
+                                <div class="forecast-icon"><i class="fas fa-cloud-rain"></i></div>
+                                <div class="forecast-temp">19°C</div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-day">Thu</div>
+                                <div class="forecast-icon"><i class="fas fa-sun"></i></div>
+                                <div class="forecast-temp">25°C</div>
+                            </div>
+                            <div class="forecast-card">
+                                <div class="forecast-day">Fri</div>
+                                <div class="forecast-icon"><i class="fas fa-cloud"></i></div>
+                                <div class="forecast-temp">21°C</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <p class="update-info">Last updated: <span id="update-time">Just now</span></p>
+                    <div class="theme-toggle">
+                        <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i> Dark Mode
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>Powered by OpenWeatherMap • Made with <i class="fas fa-heart"></i> for weather enthusiasts</p>
+            <p>Design & Developed by <a href="https://mohammadullah.netlify.app/" target="_blank"><b>Mohammadullah Al Hanafi</b></a></p>
+        </footer>
+        
+        <div class="notification" id="notification">
+            <span id="notification-text">Weather data loaded successfully!</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
